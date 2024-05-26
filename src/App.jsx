@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import ContactUs from "./components/ContactUs";
 import QueryList from "./components/QueryList";
+import { Loader2 } from "lucide-react";
 
 function App() {
   return (
@@ -16,7 +17,14 @@ function App() {
           <Route
             path=""
             element={
-              <Suspense fallback={<h1>Loading...</h1>}>
+              <Suspense
+                fallback={
+                  <div className="w-screen h-screen flex justify-center items-center">
+                    <Loader2 className="animate-spin" />
+                    <p>Loading...</p>
+                  </div>
+                }
+              >
                 <Home />
               </Suspense>
             }
